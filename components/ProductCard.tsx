@@ -21,7 +21,7 @@ export default function ProductCard({
   }
   //onTouchEnd={() => router.push('/modal')}
   return (
-    <Pressable className='flex-auto' onPress={() => router.push('/productList')}>
+    <Pressable className='flex-auto' onPress={() => router.push('/')}>
       <Card className='rounded-2xl p-4'>
         <CardHeader className='items-center'>
           <CardTitle className='pb-2 text-center'>{text}</CardTitle>
