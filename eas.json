@@ -7,7 +7,7 @@
         "EXAMPLE_ENV": "example value"
       },
       "android": {
-        "image": "default",
+        "image": "latest",
         "env": {
           "PLATFORM": "android"
         }
@@ -20,12 +20,14 @@
       }
     },
     "development": {
+      "extends": "base",
       "developmentClient": true,
       "distribution": "internal"
     },
     "preview": {
+      "extends": "base",
       "distribution": "internal"
     },
-    "production": {}
+    "production": { "extends": "base" }
   }
 }
