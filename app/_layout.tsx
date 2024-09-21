@@ -1,5 +1,3 @@
-import '~/global.css';
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Theme, ThemeProvider } from '@react-navigation/native';
 import { PortalHost } from '@rn-primitives/portal';
@@ -7,12 +5,15 @@ import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { Platform } from 'react-native';
-import MainPayButtonCounter from '~/components/MainPayButtonCounter';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
+import { Provider } from 'react-redux';
 import { ThemeToggle } from '~/components/ThemeToggle';
 import { Text } from '~/components/ui/text';
+import '~/global.css';
 import { setAndroidNavigationBar } from '~/lib/android-navigation-bar';
 import { NAV_THEME } from '~/lib/constants';
 import { useColorScheme } from '~/lib/useColorScheme';
+import store from '~/state/store';
 
 const LIGHT_THEME: Theme = {
   dark: false,
@@ -68,30 +69,42 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
       <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-      <Stack>
-        <Stack.Screen
-          name='index'
-          options={{
-            headerShown: true,
-            headerTitle: () => <Text className='px-3'>Terminal 1</Text>,
-            headerRight: () => <ThemeToggle />,
-            headerLeft: () => <ThemeToggle />,
-          }}
-        />
-        <Stack.Screen
-          name='productListModalPage'
-          options={{
-            presentation: 'modal',
-          }}
-        />
-        <Stack.Screen
-          name='modal'
-          options={{
-            presentation: 'modal',
-          }}
-        />
-      </Stack>
-      <MainPayButtonCounter />
+      <KeyboardProvider>
+        <Provider store={store}>
+          <Stack>
+            <Stack.Screen
+              name='index'
+              options={{
+                headerShown: true,
+                headerTitle: () => <Text className='px-3'>Terminal 1</Text>,
+                headerRight: () => <ThemeToggle />,
+                headerLeft: () => <ThemeToggle />,
+              }}
+            />
+            <Stack.Screen
+              name='productListModalPage'
+              options={{
+                presentation: 'modal',
+                title: 'Products',
+              }}
+            />
+            <Stack.Screen
+              name='payModal'
+              options={{
+                presentation: 'modal',
+                title: 'Pay',
+              }}
+            />
+            <Stack.Screen
+              name='modal'
+              options={{
+                presentation: 'modal',
+              }}
+            />
+          </Stack>
+        </Provider>
+      </KeyboardProvider>
+
       <PortalHost />
     </ThemeProvider>
   );

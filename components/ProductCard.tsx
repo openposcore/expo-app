@@ -1,9 +1,8 @@
-import { router } from 'expo-router';
 import * as React from 'react';
 import { Pressable, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 import { Card, CardDescription, CardHeader, CardTitle } from '~/components/ui/card';
-
-const CAT_IMAGE = 'https://i.pinimg.com/originals/ef/a2/8d/efa28d18a04e7fa40ed49eeb0ab660db.jpg';
+import { addToCart } from '~/state/cartSlice';
 
 export default function ProductCard({
   text,
@@ -11,17 +10,23 @@ export default function ProductCard({
   id,
 }: {
   text: string;
-  price: string;
+  price: number;
   id: string;
 }) {
-  const [progress, setProgress] = React.useState(78);
+  const dispatch = useDispatch();
+  const addProductToCart = () => {
+    const newProduct = {
+      id: id,
+      name: text,
+      price: price,
+      quantity: 1,
+    };
 
-  function updateProgressValue() {
-    setProgress(Math.floor(Math.random() * 100));
-  }
-  //onTouchEnd={() => router.push('/modal')}
+    dispatch(addToCart(newProduct));
+  };
+
   return (
-    <Pressable className='flex-auto' onPress={() => router.push('/')}>
+    <Pressable className='flex-auto' onPress={() => addProductToCart()}>
       <Card className='rounded-2xl p-4'>
         <CardHeader className='items-center'>
           <CardTitle className='pb-2 text-center'>{text}</CardTitle>
