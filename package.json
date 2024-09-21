@@ -5,6 +5,7 @@
   "packageManager": "pnpm@9.11.0",
   "scripts": {
     "prebuild": "expo prebuild",
+    "run": "expo run:ios",
     "tunnel": "expo start -c --ios --tunnel",
     "dev": "expo start -c --ios",
     "dev:web": "expo start -c --web",
@@ -47,6 +48,7 @@
     "react-native-web": "~0.19.6",
     "react-redux": "^9.1.2",
     "redux": "^5.0.1",
+    "run": "1.5.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "3.3.5",
     "tailwindcss-animate": "^1.0.7",
