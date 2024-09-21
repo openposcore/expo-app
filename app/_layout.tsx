@@ -7,7 +7,9 @@ import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { Platform } from 'react-native';
+import MainPayButtonCounter from '~/components/MainPayButtonCounter';
 import { ThemeToggle } from '~/components/ThemeToggle';
+import { Text } from '~/components/ui/text';
 import { setAndroidNavigationBar } from '~/lib/android-navigation-bar';
 import { NAV_THEME } from '~/lib/constants';
 import { useColorScheme } from '~/lib/useColorScheme';
@@ -70,12 +72,26 @@ export default function RootLayout() {
         <Stack.Screen
           name='index'
           options={{
-            // title: 'Starter Base',
-            headerShown: false,
+            headerShown: true,
+            headerTitle: () => <Text className='px-3'>Terminal 1</Text>,
             headerRight: () => <ThemeToggle />,
+            headerLeft: () => <ThemeToggle />,
+          }}
+        />
+        <Stack.Screen
+          name='productListModalPage'
+          options={{
+            presentation: 'modal',
+          }}
+        />
+        <Stack.Screen
+          name='modal'
+          options={{
+            presentation: 'modal',
           }}
         />
       </Stack>
+      <MainPayButtonCounter />
       <PortalHost />
     </ThemeProvider>
   );

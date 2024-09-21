@@ -3,6 +3,7 @@
   "main": "index.js",
   "version": "1.0.0",
   "scripts": {
+    "tunnel": "expo start -c --ios --tunnel",
     "dev": "expo start -c --ios",
     "dev:web": "expo start -c --web",
     "dev:android": "expo start -c --android",
