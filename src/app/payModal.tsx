@@ -8,7 +8,6 @@ import { useState } from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { useDispatch, useSelector } from 'react-redux';
 import { Input } from '~/components/ui/input';
-import { useKeyboard } from '~/lib/keyboard';
 import { clearCart, removeFromCart } from '~/state/cartSlice';
 import { RootState } from '~/state/store';
 export default function payModal() {
@@ -38,16 +37,8 @@ export default function payModal() {
     );
   }
 
-  const { isKeyboardVisible, keyboardHeight, dismissKeyboard } = useKeyboard();
-
-  console.log({ isKeyboardVisible, keyboardHeight });
-
   function onChangeText(text: string) {
-    console.log('text', text);
     setValue(text);
-    if (text === 'dismiss') {
-      dismissKeyboard();
-    }
   }
 
   // return (
@@ -72,8 +63,8 @@ export default function payModal() {
   //   </View>
   // );
   return (
-    <KeyboardAwareScrollView bottomOffset={62} className='flex-1'>
-      <View className='p-4 bg-gray-100 flex-1'>
+    <KeyboardAwareScrollView bottomOffset={62} className='flex-1 bg-gray-100'>
+      <View className='p-4 flex-1'>
         <Text className='text-lg font-semibold'>Cart Details For: {value}</Text>
         <Text className='text-lg font-bold mb-2'>Total Items: {totalItems}</Text>
         <Text className='text-lg font-bold mb-4'>Total Amount: ${totalAmount.toFixed(2)}</Text>
@@ -93,7 +84,10 @@ export default function payModal() {
           <Text>Clear Cart</Text>
         </Button>
         <Input
+          key={'input-01'}
+          id='input-01'
           placeholder='Client Name'
+          className='mt-4'
           value={value}
           onChangeText={onChangeText}
           aria-labelledby='inputLabel'
