@@ -1,16 +1,30 @@
-# Starter base
+# OpenPosCore
 
-A starting point to help you set up your project quickly and use the common components provided by `react-native-reusables`. The idea is to make it easier for you to get started.
+This is a simple POS system that I made. It is a simple POS system that allows the user to add products to a cart and then let them pay using the iphone/android/pos defice. Using 3rd party payment apps.
+
+## Payment apps support
+
+- [ ] Rabo SmartPin (Netherlands)
+- [ ] CCV (Netherlands)
 
 ## Features
 
-- NativeWind v4
-- Dark and light mode
-    - Android Navigation Bar matches mode
-    - Persistant mode
-- Common components
-    - ThemeToggle, Avatar, Button, Card, Progress, Text, Tooltip
+- [ ] Stand alone mode.
+- [ ] Multi terminal mode.
 
-<img src="https://github.com/mrzachnugent/react-native-reusables/assets/63797719/42c94108-38a7-498b-9c70-18640420f1bc"
-     alt="starter-base-template"
+- [ ] Pay by card.
+- [ ] Pay by cash.
+
+- [ ] Inventory management.
+- [ ] Product management.
+- [ ] User management.
+- [ ] Transaction history.
+
+- [ ] Multi language support.
+- [ ] Multi currency support.
+- [ ] Multi tax support.
+- [ ] Multi discount support.
+
+<img src="./githubFiles/app.gif"
+     alt="app gif"
      style="width:270px;" />

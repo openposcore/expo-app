@@ -10,7 +10,7 @@ export default function Screen() {
   for (let i = 0; i < 50; i++) {
     cards.push(
       <GroupCard
-        text={'Alcohol ' + (i + 1)}
+        text={'Group ' + (i + 1)}
         image='https://i.pinimg.com/originals/ef/a2/8d/efa28d18a04e7fa40ed49eeb0ab660db.jpg'
         id={i.toString() + '-id'}
         key={i}

@@ -92,6 +92,8 @@ export default function payModal() {
           onChangeText={onChangeText}
           aria-labelledby='inputLabel'
           aria-errormessage='inputError'
+          keyboardType='numeric'
+          returnKeyType='done'
         />
       </View>
     </KeyboardAwareScrollView>
