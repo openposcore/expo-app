@@ -95,6 +95,24 @@ export default function payModal() {
           keyboardType='numeric'
           returnKeyType='done'
         />
+        <Button
+          onPress={() => {
+            router.dismissAll();
+            setTimeout(() => {
+              router.push({
+                pathname: '/payment-provider/rabobank/initiate',
+                params: {
+                  amount: totalAmount,
+                  reference: 't-0000001',
+                  paymentMethod: 'CASH',
+                },
+              });
+            }, 0);
+          }}
+          className='mt-4'
+        >
+          <Text>Pay</Text>
+        </Button>
       </View>
     </KeyboardAwareScrollView>
   );
