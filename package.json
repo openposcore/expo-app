@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "packageManager": "pnpm@9.11.0",
   "scripts": {
+    "eas:local": "eas build --platform ios --profile development --local",
     "prebuild": "expo prebuild",
     "run": "expo run:ios",
     "tunnel": "expo start -c --ios --tunnel",

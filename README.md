@@ -1,10 +1,10 @@
 # OpenPosCore
 
-This is a simple POS system that I made. It is a simple POS system that allows the user to add products to a cart and then let them pay using the iphone/android/pos defice. Using 3rd party payment apps.
+This is a simple POS system that I made. It is a simple POS system that allows the user to add products to a cart and then let them pay using the iphone/android/pos device. Using 3rd party payment apps.
 
 ## Payment apps support
 
-- [ ] Rabo SmartPin (Netherlands)
+- [x] Rabo SmartPin (Netherlands)
 - [ ] CCV (Netherlands)
 
 ## Features

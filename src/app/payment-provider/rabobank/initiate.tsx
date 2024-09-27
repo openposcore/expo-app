@@ -11,7 +11,7 @@ export default function Initiate() {
   const priceInCent = parseInt(parms.amount as string) * 100;
   const smartPinUrl = `smartpin://payment?id=${Crypto.randomUUID()}&amount=${priceInCent}&reference=${
     parms.reference
-  }&type=${parms.paymentMethod}&url=openposcore://payment-provider/rabobank/callback`;
+  }&type=${parms.paymentMethod}&callbackUrl=openposcore://payment-provider/rabobank/callback`;
   const openSmartPin = () => {
     console.log('Opening SmartPin app:', smartPinUrl);
     Linking.openURL(smartPinUrl).catch((err) =>
