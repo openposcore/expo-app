@@ -18,11 +18,11 @@ export default function Screen() {
     );
   }
   return (
-    <View className='bg-secondary/30'>
-      <ScrollView>
+    <View className='bg-secondary/30 h-full'>
+      <ScrollView className=''>
         <View
-          style={{ marginTop: 5, marginBottom: 60 }}
-          className='flex flex-row flex-wrap gap-5 p-4 w-full h-full'
+          // style={{ marginTop: 5, marginBottom: 60 }}
+          className='flex flex-row flex-wrap gap-5 p-4 w-full h-full pb-24 web:overflow-scroll'
         >
           {cards}
         </View>

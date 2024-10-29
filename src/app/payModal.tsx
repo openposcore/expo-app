@@ -100,11 +100,11 @@ export default function payModal() {
             router.dismissAll();
             setTimeout(() => {
               router.push({
-                pathname: '/payment-provider/rabobank/initiate',
+                pathname: '/rabobank',
                 params: {
                   amount: totalAmount,
                   reference: 't-0000001',
-                  paymentMethod: 'CASH',
+                  paymentMethod: 'TAPTOPAY',
                 },
               });
             }, 0);
