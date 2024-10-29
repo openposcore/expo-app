@@ -13,7 +13,7 @@ export default function MainPayButtonCounter() {
   }
   return (
     <View className='absolute bottom-6 mx-10 left-0 right-0 '>
-      <Button className='rounded-3xl' onPress={() => router.push({ pathname: '/payModal' })}>
+      <Button className='rounded-3xl' onPress={() => router.push({ pathname: '/(modal)/pay' })}>
         <Text>Afrekenen: {totalAmount}</Text>
       </Button>
     </View>

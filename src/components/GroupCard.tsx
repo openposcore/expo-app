@@ -16,7 +16,7 @@ export default function GroupCard({
   return (
     <Pressable
       className='flex-auto'
-      onPress={() => router.push({ pathname: '/productListModalPage', params: { id: text } })}
+      onPress={() => router.push({ pathname: '/(modal)/productList', params: { id: text } })}
     >
       <Card className='rounded-2xl p-4'>
         <CardHeader className='items-center'>

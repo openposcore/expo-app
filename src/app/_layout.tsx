@@ -8,6 +8,7 @@ import * as React from 'react';
 import { Platform } from 'react-native';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { Provider } from 'react-redux';
+import { MenuButton } from '~/components/MenuButton';
 import { ThemeToggle } from '~/components/ThemeToggle';
 import { Text } from '~/components/ui/text';
 import { setAndroidNavigationBar } from '~/lib/android-navigation-bar';
@@ -76,29 +77,30 @@ export default function RootLayout() {
               name='index'
               options={{
                 headerShown: true,
+                headerLeft: () => <MenuButton />,
                 headerTitle: () => <Text className='px-3'>Terminal 1</Text>,
                 headerRight: () => <ThemeToggle />,
-                headerLeft: () => <ThemeToggle />,
               }}
             />
             <Stack.Screen
-              name='productListModalPage'
+              name='(modal)/menu'
+              options={{
+                presentation: 'modal',
+                title: 'Menu',
+              }}
+            />
+            <Stack.Screen
+              name='(modal)/productList'
               options={{
                 presentation: 'modal',
                 title: 'Products',
               }}
             />
             <Stack.Screen
-              name='payModal'
+              name='(modal)/pay'
               options={{
                 presentation: 'modal',
                 title: 'Pay',
-              }}
-            />
-            <Stack.Screen
-              name='modal'
-              options={{
-                presentation: 'modal',
               }}
             />
           </Stack>
